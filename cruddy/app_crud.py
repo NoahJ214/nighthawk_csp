@@ -63,7 +63,7 @@ def crud_authorize():
         password1 = request.form.get("password1")
         password2 = request.form.get("password2")     # password should be verified
         if password2 == password1:
-            if authorize(user_name, email, phone, password1):    # zero index [0] used as user_name and email are type tuple
+            if authorize(user_name, email, password1, phone):    # zero index [0] used as user_name and email are type tuple
                 return redirect(url_for('crud.crud_login'))
     # show the auth user page if the above fails for some reason
     return render_template("authorize.html")
